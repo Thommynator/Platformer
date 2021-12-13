@@ -1253,7 +1253,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 12
+  orthographic size: 15
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1353,6 +1353,8 @@ GameObject:
   m_Component:
   - component: {fileID: 778966850}
   - component: {fileID: 778966849}
+  - component: {fileID: 778966852}
+  - component: {fileID: 778966851}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -1382,7 +1384,7 @@ MonoBehaviour:
   m_Follow: {fileID: 386545552}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 12
+    OrthographicSize: 15
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -1413,6 +1415,38 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &778966851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778966848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f0156cfd58658b47b2f2ae18dd56141, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+--- !u!95 &778966852
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778966848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f5ff02d08de52474e97e8123c2821f4a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &791781575
 GameObject:
   m_ObjectHideFlags: 0
@@ -1423,8 +1457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 791781576}
   - component: {fileID: 791781578}
-  - component: {fileID: 791781577}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: movingPlatform_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1447,32 +1480,6 @@ Transform:
   m_Father: {fileID: 1504365970}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &791781577
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791781575}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.014291763, y: 0.20009935}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.95, y: 3.45}
-    newSize: {x: 10.95, y: 3.45}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 10.178188, y: 2.3065746}
-  m_EdgeRadius: 0
 --- !u!212 &791781578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1535,7 +1542,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1022465693}
   - component: {fileID: 1022465695}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: gearLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1962,7 +1969,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1081679656}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -38.41, y: -2.06, z: 0}
+  m_LocalPosition: {x: -45.07, y: 32.61, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2037493483}
@@ -2538,9 +2545,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1504365970}
+  - component: {fileID: 1504365972}
   - component: {fileID: 1504365969}
   - component: {fileID: 1504365971}
-  m_Layer: 0
+  - component: {fileID: 1504365973}
+  m_Layer: 6
   m_Name: MovingPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2562,7 +2571,6 @@ MonoBehaviour:
   checkpoints:
   - {fileID: 1081679657}
   - {fileID: 1507223918}
-  - {fileID: 1817626451}
   distanceThreshold: 0.1
   speed: 0.1
   waitSecondsOnTurn: 1
@@ -2574,7 +2582,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1504365968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -37.71, y: -0.39, z: -1.3747177}
+  m_LocalPosition: {x: -37.69, y: -2.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 791781576}
@@ -2600,6 +2608,44 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1504365972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504365968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e63809cb43d89443be527c6582479d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1504365973
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504365968}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 10.95, y: 3.45}
+    newSize: {x: 10.95, y: 3.45}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 10.178188, y: 2.3065746}
+  m_EdgeRadius: 0
 --- !u!1 &1507223917
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,7 +2670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1507223917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -46.09, y: 3.2, z: 0}
+  m_LocalPosition: {x: -35.25, y: 3.69, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2037493483}
@@ -2713,36 +2759,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1817626450
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1817626451}
-  m_Layer: 0
-  m_Name: Checkpoint 2 (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1817626451
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817626450}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -59.15, y: -0.77, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2037493483}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1870633730
 GameObject:
   m_ObjectHideFlags: 3
@@ -2840,7 +2856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1984158240}
   - component: {fileID: 1984158242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: gearRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2944,7 +2960,6 @@ Transform:
   - {fileID: 761341639}
   - {fileID: 1081679657}
   - {fileID: 1507223918}
-  - {fileID: 1817626451}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
 
     public SpriteRenderer weaponSpriteRenderer;
 
-
     [Header("Collision Check")]
     public Transform frontCheck;
     public Transform groundCheck;
@@ -85,13 +84,13 @@ public class PlayerMovement : MonoBehaviour
             // just landed on ground
             isGrounded = true;
             usedJumps = 0;
+            FindObjectOfType<CameraShake>().SoftShake();
         }
         else
         {
             isGrounded = tmpIsGrounded;
         }
         animator.SetBool(PLAYER_GROUNDED, isGrounded);
-
 
 
         isFaceTouching = Physics2D.OverlapCircle(frontCheck.position, collisionCheckDistance, whatIsGround);
@@ -139,6 +138,10 @@ public class PlayerMovement : MonoBehaviour
     {
         WeaponSpecs weaponSpecs = GetComponentInChildren<WeaponSpecs>();
         Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(weaponSpecs.attackTransform.position, weaponSpecs.attackRange, whatIsEnemy);
+        if (enemiesToDamage.Length > 0)
+        {
+            FindObjectOfType<CameraShake>().SoftShake();
+        }
         foreach (Collider2D collider in enemiesToDamage)
         {
             collider.GetComponent<Health>().TakeDamage(weaponSpecs.strength);
