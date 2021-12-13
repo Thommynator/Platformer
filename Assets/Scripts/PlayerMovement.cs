@@ -153,7 +153,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             isWallSliding = false;
             body.AddForce(new Vector2(wallJumpForce.x * -horizontalMovement, wallJumpForce.y), ForceMode2D.Impulse);
-            Debug.Log("Walljump");
             animator.SetTrigger(PLAYER_JUMP);
         }
         else if (isGrounded)
@@ -162,7 +161,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             usedJumps++;
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            Debug.Log("Jump");
             animator.SetTrigger(PLAYER_JUMP);
         }
         else if (HasRemainingJumps())
@@ -171,7 +169,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
             usedJumps++;
             body.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            Debug.Log("Double Jump");
             animator.SetTrigger(PLAYER_JUMP);
         }
     }
@@ -193,7 +190,6 @@ public class PlayerMovement : MonoBehaviour
     private void FlipHorizontally()
     {
         isFacingRight = !isFacingRight;
-        Debug.Log("FLIP");
         transform.localScale = new Vector3(-transform.localScale.x, transform.localScale.y, transform.localScale.z);
     }
 
