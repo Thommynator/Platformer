@@ -6,6 +6,7 @@ public class MoveToCheckpoints : MonoBehaviour
 {
 
     public List<Transform> checkpoints;
+    public float distanceThreshold;
     public float speed;
     public float waitSecondsOnTurn;
     private float remainingWaitTime;
@@ -28,7 +29,7 @@ public class MoveToCheckpoints : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, checkpoints[currentCheckpointIndex].position, speed);
             transform.rotation = checkpoints[currentCheckpointIndex].rotation;
 
-            if (Vector2.Distance(transform.position, checkpoints[currentCheckpointIndex].position) < 2f)
+            if (Vector2.Distance(transform.position, checkpoints[currentCheckpointIndex].position) < distanceThreshold)
             {
                 animator.SetBool("isRunning", false);
                 if (remainingWaitTime <= 0)
