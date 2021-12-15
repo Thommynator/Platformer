@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9fd3b7f098ef4634ca59847b309c3d64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  particleEffectPrefab: {fileID: 511221093339794809, guid: b43b2489b9a7b0f4ea275bfdaadeeed3, type: 3}
 --- !u!61 &1531941969394413867
 BoxCollider2D:
   m_ObjectHideFlags: 0
