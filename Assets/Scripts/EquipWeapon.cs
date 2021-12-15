@@ -8,10 +8,12 @@ public class EquipWeapon : MonoBehaviour
     {
         if (collider.tag == "Player")
         {
-            collider.GetComponent<PlayerMovement>().EquipWeapon(GetComponent<WeaponSpecs>());
-            GameObject particleEffect = Instantiate(particleEffectPrefab, transform.parent);
-            particleEffect.transform.SetParent(null);
-            Destroy(transform.parent.gameObject);
+            collider.GetComponent<Player>().EquipWeapon(GetComponent<WeaponSpecs>());
+            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponent<BoxCollider2D>().enabled = false;
+            GetComponent<AudioSource>().Play();
+            Instantiate(particleEffectPrefab, transform.parent);
+            Destroy(transform.parent.gameObject, 5);
         }
     }
 
