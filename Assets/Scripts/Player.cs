@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public float collisionCheckDistance;
     public LayerMask whatIsGround;
     public LayerMask whatIsEnemy;
+    public ParticleSystem landingFx;
 
 
     [Header("Attributes")]
@@ -88,6 +89,7 @@ public class Player : MonoBehaviour
         if (!isGrounded && tmpIsGrounded && body.velocity.y < 0)
         {
             // just landed on ground
+            landingFx.Play();
             isGrounded = true;
             usedJumps = 0;
             FindObjectOfType<CameraShake>().SoftShake();
