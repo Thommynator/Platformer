@@ -11,7 +11,8 @@ public class Hearts : MonoBehaviour
     private GameObject player;
 
 
-    void Start()
+
+    void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         numberOfHearts = player.GetComponent<Health>().maxHealth;
@@ -29,6 +30,9 @@ public class Hearts : MonoBehaviour
     public void UpdateHearts()
     {
         int healthyHearts = player.GetComponent<Health>().GetHealth();
+        float relativeHealth = Mathf.InverseLerp(0, numberOfHearts, healthyHearts);
+
+
         for (int i = 0; i < numberOfHearts; i++)
         {
             if (i < healthyHearts)
@@ -41,5 +45,7 @@ public class Hearts : MonoBehaviour
             }
         }
     }
+
+
 
 }

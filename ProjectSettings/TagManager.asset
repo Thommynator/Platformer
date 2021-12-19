@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Enemy
   - EquipableWeapon
+  - PostProcessing
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - PostProcessing
   - Water
   - UI
   - Ground
