@@ -8,14 +8,20 @@ public class PlayerHealth : Health
 
     void Start()
     {
-        health = maxHealth;
         audioSource = GetComponent<AudioSource>();
         onPlayerChangeHealth.AddListener(GameObject.Find("Hearts").GetComponent<Hearts>().UpdateHearts);
+        ResetHealth();
+    }
+
+    private void ResetHealth()
+    {
+        health = maxHealth;
+        onPlayerChangeHealth?.Invoke();
     }
 
     public void RegainHealth(int amount)
     {
-        health = Mathf.Min(health + amount, maxHealth);
+        health = Mathf.Clamp(health + amount, 0, maxHealth);
         onPlayerChangeHealth?.Invoke();
     }
 
@@ -36,7 +42,7 @@ public class PlayerHealth : Health
 
     private void Respawn(Transform tf)
     {
-        RegainHealth(maxHealth);
+        ResetHealth();
         transform.position = tf.position;
         transform.rotation = tf.rotation;
         gameObject.SetActive(true);

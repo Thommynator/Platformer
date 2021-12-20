@@ -3,7 +3,6 @@ using System.Collections.Generic;
 
 public class Hearts : MonoBehaviour
 {
-
     public GameObject heartPrefab;
     public Transform transformOfFirstLeftHeart;
     private int numberOfHearts;
@@ -28,9 +27,7 @@ public class Hearts : MonoBehaviour
     public void UpdateHearts()
     {
         int healthyHearts = player.GetComponent<PlayerHealth>().GetHealth();
-        Debug.Log("CUrrent hearts + " + healthyHearts);
         float relativeHealth = Mathf.InverseLerp(0, numberOfHearts, healthyHearts);
-
 
         for (int i = 0; i < numberOfHearts; i++)
         {

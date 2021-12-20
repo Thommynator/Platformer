@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 6636942960233894970}
   - component: {fileID: 6636942960233894917}
   - component: {fileID: 4024213352416784275}
+  - component: {fileID: -3064809417201915399}
   m_Layer: 8
   m_Name: Wizard
   m_TagString: Enemy
@@ -295,7 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodParticleSystemPrefab: {fileID: 6413911440760053133, guid: 252341f4084223147980962ebbfcd927, type: 3}
-  maxHealth: 3
+  maxHealth: 6
   temporaryAudioSourcePrefab: {fileID: 2725905231796251105, guid: d6cb2bee29c65924cba28c355a8f3c67, type: 3}
   splatterSound: {fileID: 8300000, guid: 173a0e6476eb4b247a970677f6bd5557, type: 3}
   hitSounds:
@@ -429,6 +430,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-3064809417201915399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6636942960233894918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccd7dcabb414b9d4fa3b1b7567e03076, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  receivesDamage:
+    serializedVersion: 2
+    m_Bits: 128
+  shouldDestroyItselfOnCollision: 0
 --- !u!1 &6636942960529011583
 GameObject:
   m_ObjectHideFlags: 0

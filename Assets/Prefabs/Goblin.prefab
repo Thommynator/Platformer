@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bloodParticleSystemPrefab: {fileID: 6413911440760053133, guid: 252341f4084223147980962ebbfcd927, type: 3}
-  maxHealth: 3
+  maxHealth: 4
   temporaryAudioSourcePrefab: {fileID: 2725905231796251105, guid: d6cb2bee29c65924cba28c355a8f3c67, type: 3}
   splatterSound: {fileID: 8300000, guid: 173a0e6476eb4b247a970677f6bd5557, type: 3}
   hitSounds:
