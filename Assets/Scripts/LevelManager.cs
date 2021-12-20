@@ -17,6 +17,13 @@ public class LevelManager : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
+    public void LoadNextScene()
+    {
+        bool isLastScene = SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1;
+        int nextScene = isLastScene ? 0 : SceneManager.GetActiveScene().buildIndex + 1;
+        LoadScene(nextScene);
+    }
+
     public void LoadScene(int sceneIndex)
     {
         StartCoroutine(FadeInto(sceneIndex));

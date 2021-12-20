@@ -7,7 +7,7 @@ public class Wizard : MonoBehaviour
 
     public void Shoot()
     {
-        GameObject fireball = Instantiate(fireballPrefab, spawnTransform);
+        GameObject fireball = Instantiate(fireballPrefab, spawnTransform.position, spawnTransform.localRotation);
         fireball.transform.SetParent(null);
     }
 }

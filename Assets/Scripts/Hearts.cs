@@ -10,12 +10,10 @@ public class Hearts : MonoBehaviour
     private List<GameObject> hearts;
     private GameObject player;
 
-
-
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        numberOfHearts = player.GetComponent<Health>().maxHealth;
+        numberOfHearts = player.GetComponent<PlayerHealth>().maxHealth;
         hearts = new List<GameObject>();
         for (int i = 0; i < numberOfHearts; i++)
         {
@@ -29,7 +27,8 @@ public class Hearts : MonoBehaviour
 
     public void UpdateHearts()
     {
-        int healthyHearts = player.GetComponent<Health>().GetHealth();
+        int healthyHearts = player.GetComponent<PlayerHealth>().GetHealth();
+        Debug.Log("CUrrent hearts + " + healthyHearts);
         float relativeHealth = Mathf.InverseLerp(0, numberOfHearts, healthyHearts);
 
 

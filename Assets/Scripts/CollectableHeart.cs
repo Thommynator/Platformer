@@ -12,7 +12,7 @@ public class CollectableHeart : MonoBehaviour
         if (collider.tag == "Player")
         {
             Instantiate(tempAudioSource, transform).GetComponent<TemporaryAudioSource>().Play(collectSound, 2);
-            collider.GetComponent<Health>().RegainHealth(recoverAmount);
+            collider.GetComponent<PlayerHealth>().RegainHealth(recoverAmount);
             Destroy(gameObject);
         }
     }

@@ -1,47 +1,29 @@
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
 
     public GameObject bloodParticleSystemPrefab;
     public int maxHealth;
-    private int health;
+    protected int health;
 
     [Header("Sounds")]
-    private AudioSource audioSource;
+    protected AudioSource audioSource;
     public GameObject temporaryAudioSourcePrefab;
     public AudioClip splatterSound;
     public AudioClip[] hitSounds;
-
-    private UnityEvent onPlayerChangeHealth = new UnityEvent();
 
     void Start()
     {
         health = maxHealth;
         audioSource = GetComponent<AudioSource>();
-        onPlayerChangeHealth.AddListener(GameObject.Find("Hearts").GetComponent<Hearts>().UpdateHearts);
     }
 
-    public void RegainHealth(int amount)
+    public virtual void TakeDamage(int damage)
     {
-        health = Mathf.Min(health + amount, maxHealth);
-        if (gameObject.tag == "Player")
-        {
-            onPlayerChangeHealth?.Invoke();
-        }
-    }
-
-    public void TakeDamage(int damage)
-    {
-
         GameObject blood = Instantiate(bloodParticleSystemPrefab, transform);
         blood.transform.SetParent(null);
         health -= damage;
-        if (gameObject.tag == "Player")
-        {
-            onPlayerChangeHealth?.Invoke();
-        }
         PlaySound(hitSounds);
         if (health <= 0)
         {
@@ -59,16 +41,16 @@ public class Health : MonoBehaviour
         Debug.Log(gameObject.name + " died!");
         FindObjectOfType<CameraShake>().MediumShake();
         Instantiate(temporaryAudioSourcePrefab, transform).GetComponent<TemporaryAudioSource>().Play(splatterSound, 5);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
-    private void PlaySound(AudioClip clip)
+    protected void PlaySound(AudioClip clip)
     {
         audioSource.clip = clip;
         audioSource.Play();
     }
 
-    private void PlaySound(AudioClip[] clips)
+    protected void PlaySound(AudioClip[] clips)
     {
         PlaySound(clips[Random.Range(0, clips.Length - 1)]);
     }
