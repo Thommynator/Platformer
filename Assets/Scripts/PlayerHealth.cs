@@ -3,8 +3,14 @@ using UnityEngine.Events;
 
 public class PlayerHealth : Health
 {
-    public Transform respawnTransform;
+    private Vector3 respawnPosition;
     private UnityEvent onPlayerChangeHealth = new UnityEvent();
+
+    void Awake()
+    {
+        respawnPosition = transform.position;
+        Debug.Log("Respawn position: " + respawnPosition);
+    }
 
     void Start()
     {
@@ -27,7 +33,6 @@ public class PlayerHealth : Health
 
     public override void TakeDamage(int damage)
     {
-        Debug.Log("Take damage new");
         GameObject blood = Instantiate(bloodParticleSystemPrefab, transform);
         blood.transform.SetParent(null);
         health -= damage;
@@ -36,15 +41,14 @@ public class PlayerHealth : Health
         if (health <= 0)
         {
             Die();
-            Respawn(respawnTransform);
+            Respawn(respawnPosition);
         }
     }
 
-    private void Respawn(Transform tf)
+    private void Respawn(Vector3 position)
     {
         ResetHealth();
-        transform.position = tf.position;
-        transform.rotation = tf.rotation;
+        transform.position = position;
         gameObject.SetActive(true);
     }
 }
